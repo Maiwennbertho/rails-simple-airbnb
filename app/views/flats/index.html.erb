@@ -1,0 +1,23 @@
+
+<h1 class="text-center">Appartements disponibles</h1>
+
+<div class="row justify-content-center">
+  <% @flats.each do |flat| %>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Appartement">
+        <div class="card-body">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.description %></p>
+          <p class="card-text">
+            <strong><%= number_to_currency(flat.price_per_night, unit: '€') %></strong> par nuit
+          </p>
+          <p class="card-text">
+            <i class="fas fa-users"></i> <%= flat.number_of_guests %> invités
+          </p>
+          <%= link_to 'Détails', flat_path(flat), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
